@@ -1,3 +1,4 @@
+- on install alle settings aktivieren
 - icon
 - tab title numbers:
     - fix some bugs
