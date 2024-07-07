@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Power Tabs</title>
+    <style>
+        body {
+            width: 200px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="sortTabs" name="sortTabs">
+        <label for="sortTabs">Sort tabs by url</label>
+    </div>
+    <div>
+        <input type="checkbox" id="showTabNumberInTabTitle" name="showTabNumberInTabTitle">
+        <label for="showTabNumberInTabTitle">Show tab numbers in title</label>
+    </div>
+    <div>
+        <input type="checkbox" id="duplicateTabs" name="duplicateTabs">
+        <label for="duplicateTabs">Prevent duplicate tabs</label>
+    </div>
+    <div>
+        <input type="checkbox" id="pinTabsHard" name="pinTabsHard">
+        <label for="pinTabsHard">Pinned tabs stay on hostname</label>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
