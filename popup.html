@@ -7,24 +7,41 @@
             width: 200px;
             font-family: Arial, sans-serif;
         }
+        label {
+            display: flex;
+            align-items: center;
+            user-select: none;
+            margin-bottom: 8px;
+        }
+        label input[type="checkbox"] {
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body>
     <div>
-        <input type="checkbox" id="sortTabs" name="sortTabs">
-        <label for="sortTabs">Sort tabs by url</label>
+        <label for="sortTabs">
+            <input type="checkbox" id="sortTabs" name="sortTabs">
+            Sort tabs by url
+        </label>
     </div>
     <div>
-        <input type="checkbox" id="showTabNumberInTabTitle" name="showTabNumberInTabTitle">
-        <label for="showTabNumberInTabTitle">Show tab numbers in title</label>
+        <label for="showTabNumberInTabTitle">
+            <input type="checkbox" id="showTabNumberInTabTitle" name="showTabNumberInTabTitle">
+            Show tab numbers in title
+        </label>
     </div>
     <div>
-        <input type="checkbox" id="duplicateTabs" name="duplicateTabs">
-        <label for="duplicateTabs">Prevent duplicate tabs</label>
+        <label for="duplicateTabs">
+            <input type="checkbox" id="duplicateTabs" name="duplicateTabs">
+            Prevent duplicate tabs
+        </label>
     </div>
     <div>
-        <input type="checkbox" id="pinTabsHard" name="pinTabsHard">
-        <label for="pinTabsHard">Pinned tabs stay on hostname</label>
+        <label for="pinTabsHard">
+            <input type="checkbox" id="pinTabsHard" name="pinTabsHard">
+            Pinned tabs stay on hostname
+        </label>
     </div>
     <script src="popup.js"></script>
 </body>
