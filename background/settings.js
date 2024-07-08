@@ -3,6 +3,8 @@ import { applyTabOrder } from "./tabOrder.js";
 import { applyPinnedTab } from "./tabPin.js";
 import { applyTabTitle } from "./tabTitle.js";
 
+const features = ["showTabNumberInTabTitle", "sortTabs", "pinTabsHard", "duplicateTabs"];
+
 export function applySettings(changes, namespace) {
     console.log("Power Tabs Settings changed: " + Object.keys(changes)[0] + ": " + Object.values(changes)[0].newValue);
     if (changes.sortTabs?.newValue) {
@@ -17,4 +19,12 @@ export function applySettings(changes, namespace) {
     if (!changes.showTabNumberInTabTitle?.newValue) {
         removeTabNumberFromTabTitles();
     }
+}
+
+export function activateAllFeatures() {
+    features.forEach(feature => {
+        var settingObj = {};
+        settingObj[feature] = true;
+        chrome.storage.sync.set(settingObj);
+    });
 }
