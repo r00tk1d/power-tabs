@@ -8,10 +8,10 @@ export function applyTabTitle() {
     });
 }
 
-export function removeTabNumberFromTabTitles() {
+export function removeTabTitleMods() {
     chrome.storage.sync.get('showTabNumberInTabTitle', function (data) {
         if (!data.showTabNumberInTabTitle) {
-            removeTabNumbersLogic();
+            removeTabNumbersFromAllTabs();
         }
     });
 }
@@ -44,20 +44,30 @@ function addTabNumbersToAllTabs() {
 
 function addTabNumberToTab(tabNumber) {
     const tabTitle = document.title;
-    const regex = /^\[\d+\] /;
+    const regex = /\[\d\] /;
     if (tabNumber !== null) {
-        if (!tabTitle.startsWith(`[${tabNumber}] `)) {
-            document.title = `[${tabNumber}] ` + tabTitle.replace(regex, '');
-        }
+        document.title = `[${tabNumber}] ` + tabTitle.replace(regex, '');
     } else {
         document.title = tabTitle.replace(regex, '');
     }
 }
 
-function removeTabNumbersLogic(){
-    // TODO
+function removeTabNumbersFromAllTabs(){
+    chrome.windows.getAll({ populate: true }, (windows) => {
+        windows.forEach((win) => {
+            const tabs = win.tabs;
+            tabs.forEach((tab, index) => {
+                chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    func: removeTabNumberFromTab
+                });
+            });
+        });
+    });
 }
 
-function removeTabNumber() {
-    // TOOD
+function removeTabNumberFromTab() {
+    const tabTitle = document.title;
+    const regex = /\[\d\] /;
+    document.title = tabTitle.replace(regex, '');
 }

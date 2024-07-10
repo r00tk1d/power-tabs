@@ -1,7 +1,7 @@
-import { removeTabNumberFromTabTitles } from "./tabTitle.js";
 import { applyTabOrder } from "./tabOrder.js";
 import { applyPinnedTab } from "./tabPin.js";
 import { applyTabTitle } from "./tabTitle.js";
+import { removeTabTitleMods } from "./tabTitle.js";
 
 const features = ["showTabNumberInTabTitle", "sortTabs", "pinTabsHard", "duplicateTabs"];
 
@@ -17,7 +17,7 @@ export function applySettings(changes, namespace) {
         applyTabTitle();
     }
     if (!changes.showTabNumberInTabTitle?.newValue) {
-        removeTabNumberFromTabTitles();
+        removeTabTitleMods();
     }
 }
 

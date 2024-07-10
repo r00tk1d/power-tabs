@@ -1,6 +1,6 @@
-- on install alle settings aktivieren
 - icon
 - tab title numbers:
     - fix some bugs
-    - remove tab numbers/restore original tab title 
 - async await verstehen und richtig anwenden
+- pinTabsHard umsetzen
+        -> chrome.tabs.onActivated vorher nutzen, um den hostname zu bekommen (bissel hacky)
